@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparelix | Innovative Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        async function checkLocation() {
+        try {
+            const response = await fetch('https://ipwho.is/');
+            const data = await response.json();
+    
+            if (data.country_code !== 'LK') {
+                document.body.innerHTML = `
+                    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; font-family:sans-serif; text-align:center; padding:20px;">
+                        <h1 style="color:#009688; font-size:4rem;">Sparelix Test</h1>
+                        <h2 style="color:#d32f2f;">Access Restricted</h2>
+                        <p>This platform is currently not available to your country.</p>
+                    </div>`;
+            }
+        } catch (error) {
+            console.error("Location check failed:", error);
+            // If the API fails, we let them in just in case, 
+            // or you can choose to block them here too.
+        }
+    }
+    checkLocation();
+    </script>
+
+    <style>
+        :root {
+            --primary: #009688;
+            --text-dark: #333;
+            --text-light: #fff;
+            --bg-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #f9f9f9;
+            padding: 50px 5% 20px;
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Sparelix</div>
+        <nav>
+            <a href="#">Buyer</a>
+            <a href="#">Seller</a>
+            <!-- <a href="#">Admin</a> -->
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h1>SPARELIX</h1>
+        <p>The premium marketplace platform. Secure, fast, and local.</p>
+        <a href="#explore" class="btn">Explore Platform</a>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Sparelix</h3>
+                <p>Empowering commerce through innovative technology.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="#">Buyer Portal</a></li>
+                    <li><a href="#">Seller Hub</a></li>
+                    <!-- <li><a href="#">Admin Dashboard</a></li> -->
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Sparelix. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
